@@ -183,7 +183,7 @@ fi
 # post-process each arg (as a line of input to sed) to backslash-escape any
 # temporary variable.
 tempfile=$(mktemp)
-printf '%s\n' "$@" | xargs -n1 | sed ' s/[^-._[:alnum:]]/ /g; s/^ //; s/ $//; s/  */ /g; ' | tr '\n' ' ' | xargs -n1 > "$tempfile"
+printf '%s\n' "$@" | xargs -n1 | sed ' s/[^-._[:alnum:]=]/ /g; s/^ //; s/ $//; s/  */ /g; ' | tr '\n' ' ' | xargs -n1 > "$tempfile"
 while IFS= read -r arg; do
   args+=( "$arg" )
 done < "$tempfile"
