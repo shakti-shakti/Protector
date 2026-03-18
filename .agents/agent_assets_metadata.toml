@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "IeJpylolPhZv1juWNloMb"
+uri = "file://ANDROID_APP_FULL_SPECIFICATION.md"
+type = "text"
+title = "FileVault Pro — Android APK Full Feature Specification"
