@@ -60,7 +60,7 @@ jobs:
 
       - name: Build Debug APK
         working-directory: android-app
-        run: ./gradlew assembleDebug --no-daemon --stacktrace
+        run: bash ./gradlew assembleDebug --no-daemon --stacktrace
         env:
           GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false -Dkotlin.incremental=false"
 
