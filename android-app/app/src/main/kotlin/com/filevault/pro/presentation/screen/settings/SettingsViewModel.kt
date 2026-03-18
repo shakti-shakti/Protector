@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.json.JSONArray
@@ -68,9 +69,8 @@ class SettingsViewModel @Inject constructor(
         appPreferences.setThemeMode(next)
     }
 
-    private fun getFiles(): List<FileEntry> =
-        fileRepository.getAllFiles(SortOrder(), FileFilter())
-            .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList()).value
+    private suspend fun getFiles(): List<FileEntry> =
+        fileRepository.getAllFiles(SortOrder(), FileFilter()).first()
 
     fun exportCatalogCsv(context: Context) {
         viewModelScope.launch {

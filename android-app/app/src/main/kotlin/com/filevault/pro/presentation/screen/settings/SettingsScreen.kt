@@ -29,7 +29,8 @@ fun SettingsScreen(
     onNavigateToSyncProfiles: () -> Unit,
     onNavigateToDuplicates: () -> Unit,
     onNavigateToFolders: () -> Unit,
-    onNavigateToNotifications: () -> Unit = {}
+    onNavigateToNotifications: () -> Unit = {},
+    onNavigateToCrashLog: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val themeMode by viewModel.themeMode.collectAsState()
@@ -189,6 +190,14 @@ fun SettingsScreen(
                         }
                         context.startActivity(intent)
                     }
+                )
+            }
+            item {
+                SettingsItem(
+                    icon = Icons.Default.BugReport,
+                    title = "Crash Logs",
+                    subtitle = "View crash reports from previous sessions",
+                    onClick = onNavigateToCrashLog
                 )
             }
 
