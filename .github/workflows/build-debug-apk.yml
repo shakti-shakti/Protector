@@ -8,12 +8,14 @@ on:
       - develop
     paths:
       - 'android-app/**'
+      - '.github/workflows/build-debug-apk.yml'
   pull_request:
     branches:
       - main
       - master
     paths:
       - 'android-app/**'
+      - '.github/workflows/build-debug-apk.yml'
   workflow_dispatch:
 
 jobs:
